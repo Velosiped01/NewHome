@@ -1,4 +1,4 @@
-﻿namespace NewHome.Infrastructure
+﻿namespace NewHome.Infrastucture
 {
     public class Class1
     {
