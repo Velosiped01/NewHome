@@ -1,4 +1,6 @@
 
+using NewHome.Infrastucture;
+
 namespace NewHome.API
 {
     public class Program
@@ -13,6 +15,8 @@ namespace NewHome.API
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddScoped<ApplicationDbContext>();
 
             var app = builder.Build();
 

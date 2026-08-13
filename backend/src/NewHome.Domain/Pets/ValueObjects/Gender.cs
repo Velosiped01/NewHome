@@ -27,6 +27,6 @@ namespace NewHome.Domain.Pets.ValueObjects
 
         public override string ToString() => Value;
         
-       
+       public static Gender CreateFromDB(string input) => new(input);
     }
 }

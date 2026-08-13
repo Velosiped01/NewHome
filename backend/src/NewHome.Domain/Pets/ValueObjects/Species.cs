@@ -33,5 +33,7 @@ namespace NewHome.Domain.Pets.ValueObjects
             return species is null ? Result.Failure<Species>("Invalid species ") : Result.Success(species);
         }
         public override string ToString() => Value;
+
+        public static Species CreateFromDB(string input) => new(input);
     }
 }
