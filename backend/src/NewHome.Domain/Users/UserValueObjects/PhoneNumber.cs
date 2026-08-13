@@ -4,13 +4,15 @@ namespace NewHome.Domain.Users.UserValueObjects
 {
     public record PhoneNumber
     {
+        private PhoneNumber(string number)
+        {
+            Value = number;
+        }
+
+
         private static readonly string phoneRegex = @"^[\+]?[(]?[0-9]{3}[)]?[-\\s\\.]?[0-9]{3}[-\\s\\.]?[0-9]{4,6}$";
         public string Value { get; }
         
-        private PhoneNumber(string number)
-        {
-            Value = number; 
-        }
         
         public static Result<PhoneNumber> Create(string input)
         {
@@ -24,5 +26,7 @@ namespace NewHome.Domain.Users.UserValueObjects
             return Result.Success(number);
 
         }
+
+        public static PhoneNumber CreateFromDB(string input) => new(input);
     }
 }

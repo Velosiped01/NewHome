@@ -20,5 +20,6 @@ namespace NewHome.Domain.Pets.ValueObjects
 
         public static PetId Empty() => new(Guid.Empty);
 
+        public static PetId CreateFromDB(Guid id) => new(id);
     }
 }

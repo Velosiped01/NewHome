@@ -4,12 +4,13 @@ namespace NewHome.Domain.Users.UserValueObjects
 {
     public record Rating
     {
-        public double Value { get; } = 0;
-
         private Rating(double rating)
         {
             Value = rating;
         }
+
+        public double Value { get; }
+     
 
         public static Result<Rating> Create(double _rating)
         {
@@ -18,6 +19,7 @@ namespace NewHome.Domain.Users.UserValueObjects
             var rating = new Rating(_rating);
             return Result.Success(rating);
         }
+        public static Rating CreateFromDB(double input) => new(input);
     }
 }
 

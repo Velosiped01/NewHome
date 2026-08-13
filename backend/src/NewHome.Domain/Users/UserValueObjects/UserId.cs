@@ -20,5 +20,7 @@ namespace NewHome.Domain.Users.UserValueObjects
         {
             Value = value;
         }
+
+        public static UserId CreateFromDB(Guid id) => new(id);
     }
 }
