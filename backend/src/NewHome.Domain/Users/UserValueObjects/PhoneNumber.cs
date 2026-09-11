@@ -1,4 +1,4 @@
-﻿using CSharpFunctionalExtensions;
+﻿using NewHome.Domain.Shared;
 using System.Text.RegularExpressions;
 namespace NewHome.Domain.Users.UserValueObjects
 {
@@ -17,13 +17,13 @@ namespace NewHome.Domain.Users.UserValueObjects
         public static Result<PhoneNumber> Create(string input)
         {
             if (string.IsNullOrWhiteSpace(input))
-                return Result.Failure<PhoneNumber>("Phone number is required");
+                return "Phone number is required";
             if (!Regex.IsMatch(input, phoneRegex))
-                return Result.Failure<PhoneNumber>("Invalid phone number");
+                return "Invalid phone number";
 
             var number = new PhoneNumber(input.Trim().Replace(" ", "").Replace("-", ""));
 
-            return Result.Success(number);
+            return Result<PhoneNumber>.Success(number);
 
         }
 

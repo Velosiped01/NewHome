@@ -1,4 +1,4 @@
-﻿using CSharpFunctionalExtensions;
+﻿using NewHome.Domain.Shared;
 using System.Reflection.Metadata.Ecma335;
 
 namespace NewHome.Domain.Pets.ValueObjects
@@ -21,7 +21,7 @@ namespace NewHome.Domain.Pets.ValueObjects
         {
             var gender = _all.FirstOrDefault(x => x.Value.Equals(input, StringComparison.OrdinalIgnoreCase));
 
-            return gender is null ? Result.Failure<Gender>("Gender isn't valid") : Result.Success(gender);
+            return gender is null ? "Gender isn't valid" : Result<Gender>.Success(gender);
 
         }
 

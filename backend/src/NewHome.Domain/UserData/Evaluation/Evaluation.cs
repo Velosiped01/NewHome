@@ -33,12 +33,12 @@ namespace NewHome.Domain.UserData.Evaluation.EvaluationVO;
         public static Result<Evaluation> Create(User user, string comment, double ratingValue)
         {
             if (string.IsNullOrWhiteSpace(comment))
-                return Result.Failure<Evaluation>("Necessary comment");
+                return "Necessary comment";
             if (ratingValue <= 0)
-                return Result.Failure<Evaluation>("Invalid rating");
+                return "Invalid rating";
 
             var evaluation = new Evaluation(EvaluationId.NewEvaluationId(), user, comment, ratingValue, DateTime.Now);
 
-            return Result.Success(evaluation);
+            return Result<Evaluation>.Success(evaluation);
         }
     }
