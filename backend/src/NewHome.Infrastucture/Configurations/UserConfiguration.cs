@@ -40,6 +40,23 @@ namespace NewHome.Infrastucture.Configurations
                     value => PhoneNumber.CreateFromDB(value));
 
 
+            builder.OwnsOne(u => u.Adress, a =>
+            {
+                a.ToJson();
+
+                a.Property(a => a.Country)
+                .IsRequired()
+                .HasMaxLength(BasedConstants.MAX_SIMPLE_DATA_LENGTH);
+
+                a.Property(a => a.City)
+                .IsRequired()
+                .HasMaxLength(BasedConstants.MAX_SIMPLE_DATA_LENGTH);
+
+                a.Property(a => a.Street)
+                .IsRequired()
+                .HasMaxLength(BasedConstants.MAX_SIMPLE_DATA_LENGTH);
+            });
+
             builder.Property(u => u.Raiting)
                 .HasConversion(
                     rt => rt.Value,

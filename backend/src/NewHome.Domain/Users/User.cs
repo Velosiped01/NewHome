@@ -1,5 +1,4 @@
-﻿using CSharpFunctionalExtensions;
-using NewHome.Domain.Users.UserValueObjects;
+﻿using NewHome.Domain.Users.UserValueObjects;
 using NewHome.Domain.Pets;
 using NewHome.Domain.UserData.Evaluation.EvaluationVO;
 using System;
@@ -37,6 +36,8 @@ namespace NewHome.Domain.Users
 
         public PhoneNumber PhoneNumber { get; private set; }
 
+        public Adress Adress { get; private set; }
+
         public List<Evaluation> UserEvaluations { get; private set; } = [];
 
         public Rating Raiting { get; private set; }
@@ -45,17 +46,17 @@ namespace NewHome.Domain.Users
 
         public ICollection<Pet> UserPets { get; private set; } = [];
 
-        public static Result<User> Create(UserId uid, string name, string surname, PhoneNumber phonenumber, string picture)
+        public static Result Create(UserId uid, string name, string surname, PhoneNumber phonenumber, string picture)
         {
-            if (string.IsNullOrWhiteSpace(name)) return Result.Failure<User>("Name is required");
+            if (string.IsNullOrWhiteSpace(name)) return "Name is required";
 
-            if (string.IsNullOrWhiteSpace(surname)) return Result.Failure<User>("Surname is required");
+            if (string.IsNullOrWhiteSpace(surname)) return "Surname is required";
 
-            if (phonenumber == null) return Result.Failure<User>("Phone number is required");
+            if (phonenumber == null) return "Phone number is required";
 
             var user = new User(uid, name, surname, phonenumber, new List<Evaluation>{ }, picture);
 
-            return Result.Success(user);
+            return Result<User>.Success(user);
 
         }
 

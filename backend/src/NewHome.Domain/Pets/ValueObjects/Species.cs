@@ -1,4 +1,4 @@
-﻿using CSharpFunctionalExtensions;
+﻿using NewHome.Domain.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +30,7 @@ namespace NewHome.Domain.Pets.ValueObjects
         {
             var species = _all.FirstOrDefault(x => x.Value.Equals(input, StringComparison.OrdinalIgnoreCase));
 
-            return species is null ? Result.Failure<Species>("Invalid species ") : Result.Success(species);
+            return species is null ? "Invalid species " : Result<Species>.Success(species);
         }
         public override string ToString() => Value;
 

@@ -1,5 +1,4 @@
-﻿using CSharpFunctionalExtensions;
-
+﻿using NewHome.Domain.Shared;
 namespace NewHome.Domain.Users.UserValueObjects
 {
     public record Rating
@@ -15,9 +14,9 @@ namespace NewHome.Domain.Users.UserValueObjects
         public static Result<Rating> Create(double _rating)
         {
             if (_rating <= 0)
-                return Result.Failure<Rating>("Invalid rating");
+                return "Invalid rating";
             var rating = new Rating(_rating);
-            return Result.Success(rating);
+            return Result<Rating>.Success(rating);
         }
         public static Rating CreateFromDB(double input) => new(input);
     }

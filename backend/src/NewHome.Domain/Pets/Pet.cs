@@ -67,21 +67,21 @@ namespace NewHome.Domain.Pets
 
         public static Result<Pet> Create(PetId id, string name,Gender gender, string picture, int age, Species  species, string breed,string description, string health, string address, bool castration, User owner)
         {
-            if (string.IsNullOrWhiteSpace(name)) return Result.Failure<Pet>("Name is required");
+            if (string.IsNullOrWhiteSpace(name)) return "Name is required";
 
-            if (age < 0 || age > 50) return Result.Failure<Pet>("Invalid age");
+            if (age < 0 || age > 50) return "Invalid age";
 
-            if (string.IsNullOrWhiteSpace(breed)) return Result.Failure<Pet>("Breed is required");
+            if (string.IsNullOrWhiteSpace(breed)) return "Breed is required";
 
-            if (string.IsNullOrWhiteSpace(description)) return Result.Failure<Pet>("Description is reqired");
+            if (string.IsNullOrWhiteSpace(description)) return "Description is reqired";
 
-            if (string.IsNullOrWhiteSpace(health)) return Result.Failure<Pet>("Choose the health status");
+            if (string.IsNullOrWhiteSpace(health)) return "Choose the health status";
 
-            if (string.IsNullOrWhiteSpace(address)) return Result.Failure<Pet>("Provide your address");
+            if (string.IsNullOrWhiteSpace(address)) return "Provide your address";
 
-            var Pet = new Pet(id, name, gender, picture, age, species, breed, description, health, address, castration, owner);
+            var pet = new Pet(id, name, gender, picture, age, species, breed, description, health, address, castration, owner);
 
-            return Result.Success(Pet); 
+            return Result<Pet>.Success(pet); 
         }
 
         public void SetPicture(string path)
