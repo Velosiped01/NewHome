@@ -1,5 +1,4 @@
-﻿using CSharpFunctionalExtensions;
-using NewHome.Domain.Pets.ValueObjects;
+﻿using NewHome.Domain.Pets.ValueObjects;
 using NewHome.Domain.Shared;
 using System;
 using System.Collections.Generic;

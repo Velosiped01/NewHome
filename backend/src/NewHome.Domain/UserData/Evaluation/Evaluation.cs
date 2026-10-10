@@ -1,6 +1,5 @@
-﻿    using CSharpFunctionalExtensions;
-    using NewHome.Domain.Shared;
-    using NewHome.Domain.Users;
+﻿using NewHome.Domain.Shared;
+using NewHome.Domain.Users;
 using NewHome.Domain.Users.UserValueObjects;
 namespace NewHome.Domain.UserData.Evaluation.EvaluationVO;
 

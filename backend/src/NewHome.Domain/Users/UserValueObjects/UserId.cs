@@ -22,5 +22,7 @@ namespace NewHome.Domain.Users.UserValueObjects
         }
 
         public static UserId CreateFromDB(Guid id) => new(id);
+
+        public static implicit operator Guid(UserId userId) => userId.Value;
     }
 }

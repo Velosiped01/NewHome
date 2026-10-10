@@ -80,6 +80,8 @@ namespace NewHome.Domain.Users
         {
             PicturePath = null;
         }
+
+        
     }
 
 
